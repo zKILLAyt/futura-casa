@@ -1,0 +1,18 @@
+{
+  "extends": "../server/tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "composite": false,
+    "incremental": false,
+    "rootDir": "..",
+    "outDir": "../.test-build"
+  },
+  "include": [
+    "../server/dashboard-finances.ts",
+    "../server/transaction-service.ts",
+    "../server/shopping-service.ts",
+    "../prisma/seed.ts",
+    "./*.test.ts",
+    "./run-tests.ts"
+  ]
+}

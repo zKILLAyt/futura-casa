@@ -1,0 +1,20 @@
+export type User = { id: string; name: string; email: string };
+export type Category = { id: string; name: string; type: 'INCOME' | 'EXPENSE'; color: string };
+export type Income = { id: string; description: string; amount: number | string; kind: 'GROSS_SALARY' | 'NET_SALARY' | 'BENEFIT' | 'EXTRA' | 'OTHER'; frequency: string; occurredAt: string; notes?: string | null; categoryId: string; category?: Category; responsibleId?: string | null; responsible?: { id: string; name: string } | null };
+export type Expense = { id: string; description: string; amount: number | string; frequency: string; nature: 'FIXED' | 'VARIABLE'; dueAt: string; status: 'PENDING' | 'PAID'; isShared: boolean; notes?: string | null; categoryId: string; category?: Category; responsibleId?: string | null; responsible?: { id: string; name: string } | null };
+export type Property = { id: string; title: string; location: string; rent: number | string; iptu: number | string; fireInsurance: number | string; trashFee: number | string; condoFee: number | string; areaM2: number | string; bedrooms: number; bathrooms: number; parkingSpaces: number; listingUrl: string; status: string; monthlyTotal: number };
+export type ShoppingStatus = 'PLANNED' | 'IN_PROGRESS' | 'PURCHASED' | 'RECEIVED';
+export type ShoppingItem = { id: string; name: string; quantity: number; estimatedCost: number | string | null; paidCost: number | string | null; priority: 'ESSENTIAL' | 'IMPORTANT' | 'OPTIONAL'; status: ShoppingStatus; responsibleId?: string | null; responsible?: { id: string; name: string } | null };
+export type Goal = { id: string; name: string; targetAmount: number | string | null; targetDate?: string | null; contributed: number; progress: number | null; contributions: { id: string; amount: number | string; contributedAt: string; note?: string | null; user: User }[] };
+export type DashboardData = {
+  month: string;
+  income: { gross: number; netConfirmed: number; benefits: number; extra: number };
+  expenses: { total: number; fixed: number; variable: number; paid: number; pending: number; categories: { name: string; value: number }[] };
+  availableBalance: number | null; balanceNote: string;
+  chart: { month: string; availableIncome: number; paidExpenses: number; goalContributions: number }[];
+  properties: Property[];
+  goals: { id: string; name: string; targetAmount: number | null; contributed: number; progress: number | null }[];
+  shopping: { count: number; estimated: number; pricedCount: number };
+  activities: { id: string; action: string; entity: string; description: string; amount: number | null; actor: string; createdAt: string }[];
+  members: User[];
+};
