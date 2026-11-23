@@ -258,3 +258,14 @@ model ActivityLog {
 
   @@index([householdId, createdAt])
 }
+
+/// Stored by connect-pg-simple; excluded from the application Prisma Client.
+model UserSession {
+  sid    String   @id @db.VarChar
+  sess   Json     @db.Json
+  expire DateTime @db.Timestamp(6)
+
+  @@index([expire], map: "IDX_user_sessions_expire")
+  @@map("user_sessions")
+  @@ignore
+}
