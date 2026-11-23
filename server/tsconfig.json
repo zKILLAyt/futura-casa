@@ -4,5 +4,5 @@
     "esModuleInterop": true, "skipLibCheck": true, "forceConsistentCasingInFileNames": true,
     "noEmit": true, "types": ["node"]
   },
-  "include": ["./**/*.ts", "../prisma/seed.ts"]
+  "include": ["./**/*.ts", "../api/**/*.ts", "../prisma/seed.ts"]
 }

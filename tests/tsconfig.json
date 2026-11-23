@@ -9,6 +9,8 @@
   },
   "include": [
     "../server/dashboard-finances.ts",
+    "../server/app.ts",
+    "../server/vercel-handler.ts",
     "../server/transaction-service.ts",
     "../server/shopping-service.ts",
     "../prisma/seed.ts",
